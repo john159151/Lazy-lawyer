@@ -1,0 +1,91 @@
+<center>
+<h2> 联 系 方 式 </h2>
+</center>
+<div class="row">
+    <center>
+    <div class="col-lg-1">
+    </div>
+  </center>
+  <center>
+    <div class="col-lg-5">
+        <h4>杨昕月律师 联系方式二维码</h4>
+        <img src="static/image/contact.png" width="300">
+    </div>
+  </center>
+  <center>
+      <div class="col-lg-5">
+        <h4>微信公众号：yangxinyue</h4>
+        <img src="static/image/weixin.jpg" width="301">
+      </div>
+  </center>
+  <center>
+      <div class="col-lg-1">
+      </div>
+  </center>
+</div>
+<center>
+<h2> 办 公 地 点 </h2>
+</center>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="map-container">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=B553c34c36b2a7fc2b384ffd5738eabb"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <div id="allmap" style="overflow:hidden;zoom:1;position:relative;height:400px;width:100%"> 
+        <div id="map" style="height:100%;-webkit-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;"></div>
+    </div>
+    <script type="text/javascript">
+        var map = new BMap.Map('map');
+        var poi = new BMap.Point(102.714221,25.023616);
+        map.centerAndZoom(poi, 17);
+        map.enableScrollWheelZoom();
+
+        var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
+                        '<img src="static/image/logo.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:50px;height:50px;margin-left:3px;"/>' +
+                        '地址：西山区老海埂路都昌欣界苑A栋25楼<br/>' +
+                      '</div>';
+
+        //创建检索信息窗口对象
+        var searchInfoWindow = null;
+        searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+                title  : "云南北川律师事务所",      //标题
+                width  : 260,             //宽度
+                height : 60,              //高度
+                panel  : "panel",         //检索结果面板
+                enableAutoPan : true,     //自动平移
+                searchTypes   :[
+                    BMAPLIB_TAB_SEARCH,   //周边检索
+                    BMAPLIB_TAB_TO_HERE,  //到这里去
+                    BMAPLIB_TAB_FROM_HERE //从这里出发
+                ]
+            });
+        var icon=new BMap.Icon('static/image/location.ico',new BMap.Size(32,32)); //icon_url为自己的图片路径
+        var marker = new BMap.Marker(poi,{icon:icon});//创建marker对象
+        marker.addEventListener("click", function(e){
+            searchInfoWindow.open(marker);
+        })
+        map.addOverlay(marker); //在地图中添加marker
+        searchInfoWindow.open(marker); //在marker上打开检索信息串口
+        map.addControl(new BMap.NavigationControl(searchInfoWindow));   //缩放控件风格一
+        map.addControl(new BMap.ScaleControl());     //比例尺
+        $("close").onclick = function(){
+            searchInfoWindow.close();
+        }
+        $("open").onclick = function(){
+            var enableSendToPhone = false;
+            if ($("enableSendToPhone").checked) {
+                enableSendToPhone = true;
+            }
+            
+            if ($("enableAutoPan").checked) {
+                searchInfoWindow.enableAutoPan();
+            } else {
+                searchInfoWindow.disableAutoPan();
+            };
+            searchInfoWindow.open(marker);
+        }
+    </script>
+    </div>
+  </div>
+</div>

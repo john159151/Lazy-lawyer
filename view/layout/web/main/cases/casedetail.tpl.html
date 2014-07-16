@@ -1,0 +1,32 @@
+
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="bs-component">
+            <center>
+              <h3><?=$casecontent['title'];?></a></h3>
+              <h5><?=$catename;?> <?=$casecontent['time'];?></h5>
+            </center>
+            <p><?=$casecontent['content'];?></p>
+          </div>
+
+        </div>
+        <div class="col-lg-3" style="margin-top: 50px;">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <center>
+              <h3 class="panel-title">案例分类</h3>
+              </center>
+            </div>
+            <div class="list-group">
+              <a href="?c=cases" class="list-group-item">全部案例</a>
+              <?php foreach ($categorys as $key => $value): ?>
+              <a href="?c=cases&a=casecat&cat=<?=$value['id']?>" class="list-group-item<?php if( $casecontent['category'] == $value['id'] ): ?> active<?php endif; ?>">
+                <?=$value['catname'];?>
+              </a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>

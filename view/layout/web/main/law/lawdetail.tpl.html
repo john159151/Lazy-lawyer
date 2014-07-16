@@ -1,0 +1,32 @@
+
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="bs-component">
+            <center>
+              <h3><?=$casecontent['title'];?></a></h3>
+              <h5><?=$catename;?> <?=$casecontent['time'];?></h5>
+            </center>
+            <p><?=$casecontent['content'];?></p>
+          </div>
+
+        </div>
+        <div class="col-lg-3" style="margin-top: 50px;">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <center>
+              <h3 class="panel-title">法律法规分类浏览</h3>
+              </center>
+            </div>
+            <div class="list-group">
+              <a href="?c=law" class="list-group-item">所有法律主题</a>
+              <?php foreach ($categorys as $key => $value): ?>
+              <a href="?c=law&a=lawcat&cat=<?=$value['id']?>" class="list-group-item<?php if( $casecontent['lawcat'] == $value['id'] ): ?> active<?php endif; ?>">
+                <?=$value['catname'];?>
+              </a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>

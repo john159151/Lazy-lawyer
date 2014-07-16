@@ -1,0 +1,61 @@
+<center>
+      <h1 id="type"><?=$itemname;?></h1>
+    </center>
+
+      <!-- Headings -->
+
+      <div class="row">
+        
+        <?php @include_once( dirname(__FILE__) ) . DS . 'sidebar.tpl.html'; ?>
+
+        <div class="col-lg-9">
+            <form class="form-horizontal" action="?c=backedit&a=saveaddlaw" method="post">
+              <fieldset>
+                <legend>请填写下列内容</legend>
+                <div class="form-group">
+                  <label for="title" class="col-lg-2 control-label">法律主题</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="title" name="title" placeholder="填写法律主题">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="select" class="col-lg-2 control-label">主题分类</label>
+                  <div class="col-lg-4">
+                    <select class="form-control" name="lawcat" id="lawcat">
+                      <?php if( isset($casecat) && is_array( $casecat ) ): ?>
+                      <?php foreach ($casecat as $key => $value): ?>
+                      <option value="<?=$value['id'];?>"><?=$value['catname'];?></option>
+                      <?php endforeach; ?>
+                      <?php endif; ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="time" class="col-lg-2 control-label">时间</label>
+                  <div class="col-lg-4">
+                    <input type="text" class="form-control" id="datepicker" name="time" placeholder="选择时间">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="description" class="col-lg-2 control-label">概要</label>
+                  <div class="col-lg-10">
+                    <textarea class="form-control" rows="2" id="description" name="description" style="margin: 0px -22.84375px 0px 0px; height: 60px; width: 100%;"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="content" class="col-lg-2 control-label">正文</label>
+                  <div class="col-lg-10">
+                    <textarea class="form-control" rows="2" id="content" name="content" style="margin: 0px -22.84375px 0px 0px; height: 600px; width: 100%;"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-10 col-lg-offset-2">
+                    <a href="?c=backedit&a=lists&item=lawlist" class="btn btn-default">返回</a>&nbsp; &nbsp; &nbsp;
+                    <button type="submit" class="btn btn-primary">提交</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+        </div>
+      </div>
+    </div>

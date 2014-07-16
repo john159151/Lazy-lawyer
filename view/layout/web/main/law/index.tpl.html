@@ -1,0 +1,42 @@
+<center>
+      <h1 id="type">法律法规</h1>
+    </center>
+
+      <!-- Headings -->
+
+      <div class="row">
+        <div class="col-lg-9">
+          <?php if( isset($allcase) && is_array( $allcase ) ): ?>
+          <?php foreach ($allcase as $key => $value): ?>
+          <hr />
+          <div class="bs-component">
+            <h3><a href="?c=law&a=lawdetail&num=<?=$value['id'];?>"><?=$value['title'];?></a></h3>
+            <h5><?=cat_to_name($value['category']);?> <?=$value['time'];?></h5>
+            <p><?=$value['description'];?>......</p>
+          </div>
+          <?php endforeach; ?>
+          <?php else: ?>
+          <hr />
+            <center><p>暂无法律主题</p></center>
+          <?php endif; ?>
+          <hr />
+
+        </div>
+        <div class="col-lg-3" style="margin-top: 20px;">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <center>
+              <h3 class="panel-title">法律法规分类浏览</h3>
+              </center>
+            </div>
+            <div class="list-group">
+              <a href="?c=law" class="list-group-item active">所有法律主题</a>
+              <?php foreach ($categorys as $key => $value): ?>
+              <a href="?c=law&a=lawcat&cat=<?=$value['id']?>" class="list-group-item"><?=$value['catname'];?></a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>

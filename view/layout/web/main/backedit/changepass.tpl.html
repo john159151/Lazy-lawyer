@@ -1,0 +1,38 @@
+<center>
+      <h1 id="type">修改密码</h1>
+    </center>
+
+      <!-- Headings -->
+
+      <div class="row">
+        
+        <?php @include_once( dirname(__FILE__) ) . DS . 'sidebar.tpl.html'; ?>
+
+        <div class="col-lg-9" style="margin-top:60px;">
+
+          <form class="form-horizontal" action="?c=backedit&a=checkpass" method="post">
+            <fieldset style="width:100%;">
+              <div class="form-group">
+                <label for="oldpassword" class="col-lg-3 control-label">原密码</label>
+                <div class="col-lg-4">
+                  <input type="password" class="form-control" id="oldpassword" name="oldpassword" placeholder="输入原密码">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="newpassword" class="col-lg-3 control-label">新密码</label>
+                <div class="col-lg-4">
+                  <input type="password" class="form-control" id="newpassword" name="newpassword" placeholder="输入新密码">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-3 col-lg-offset-3">
+                  <button type="submit" class="btn btn-primary">确认修改</button>
+                </div>
+              </div>
+              </center>
+            </fieldset>
+          </form>
+
+        </div>
+      </div>
+    </div>

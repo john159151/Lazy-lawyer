@@ -1,0 +1,42 @@
+<center>
+      <h1 id="type">案例展示</h1>
+    </center>
+
+      <!-- Headings -->
+
+      <div class="row">
+        <div class="col-lg-9">
+          <?php if( isset($allcase) && is_array( $allcase ) ): ?>
+          <?php foreach ($allcase as $key => $value): ?>
+          <hr />
+          <div class="bs-component">
+            <h3><a href="?c=cases&a=casedetail&num=<?=$value['id'];?>"><?=$value['title'];?></a></h3>
+            <h5><?=cat_to_name($value['category']);?> <?=$value['time'];?></h5>
+            <p><?=$value['description'];?>......</p>
+          </div>
+          <?php endforeach; ?>
+          <?php else: ?>
+          <hr />
+            <center><p>暂无案例</p></center>
+          <?php endif; ?>
+          <hr />
+
+        </div>
+        <div class="col-lg-3" style="margin-top: 20px;">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <center>
+              <h3 class="panel-title">案例分类</h3>
+              </center>
+            </div>
+            <div class="list-group">
+              <a href="?c=cases" class="list-group-item active">全部案例</a>
+              <?php foreach ($categorys as $key => $value): ?>
+              <a href="?c=cases&a=casecat&cat=<?=$value['id']?>" class="list-group-item"><?=$value['catname'];?></a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>

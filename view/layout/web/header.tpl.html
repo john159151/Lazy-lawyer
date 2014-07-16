@@ -1,0 +1,31 @@
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="?a=index" class="navbar-brand"><strong>杨昕月 律师</strong>个人网站</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li<?php if( g('c') == 'default' && g('a') == 'index' ): ?> class="active"<?php endif; ?>>
+            <a href="?a=index">首页</a>
+          </li>
+          <li<?php if( g('c') == 'cases' ): ?> class="active"<?php endif; ?>>
+            <a href="?c=cases">案例展示</a>
+          </li>
+          <li<?php if( g('c') == 'law' ): ?> class="active"<?php endif; ?>>
+            <a href="?c=law">法律法规</a>
+          </li>
+          <li<?php if( g('c') == 'downloadfile' ): ?> class="active"<?php endif; ?>>
+            <a href="?c=downloadfile">文档下载</a>
+          </li>
+          <li<?php if( g('a') == 'contacts' ): ?> class="active"<?php endif; ?>>
+            <a href="?a=contacts">联系方式</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

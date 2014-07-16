@@ -1,0 +1,159 @@
+<center>
+      <h1 id="type"><?=$h1title;?></h1>
+    </center>
+
+      <!-- Headings -->
+
+      <div class="row">
+        
+        <?php @include_once( dirname(__FILE__) ) . DS . 'sidebar.tpl.html'; ?>
+
+        <div class="col-lg-9">
+          <?php if ($itemname == 'casecat' || $itemname == 'lawcat' || $itemname == 'filecat'): ?>
+            <table class="table table-striped table-hover ">
+              <thead>
+                <tr>
+                  <th>分类名称</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+            <?php if( isset($contents) && is_array( $contents ) ): ?>
+            <?php foreach ($contents as $key => $value): ?>
+              <tr>
+                <td><p><?=$value['catname'];?></p></td>
+                <td>
+                  <a href="?c=backedit&a=deletecontent&type=<?=$itemname;?>&num=<?=$value['id'];?>" class="btn btn-warning btn-sm">删 除</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+              </tbody>
+            </table> 
+            <?php endif; ?>
+              <hr />
+              <form action="?c=backedit&a=addcat&type=<?=$itemname;?>" method="post"
+              enctype="multipart/form-data">
+              <h4>新增分类：</h4>
+              <label for="catname">分类名称: &nbsp; &nbsp; </label>
+              <input type="text" name="catname" id="catname" />
+              <br /><br />
+              <input type="submit" class="btn btn-success btn-sm" name="submit" value="添加" />
+              </form>
+          <?php elseif($itemname == 'filelist'): ?>
+            <table class="table table-striped table-hover ">
+              <thead>
+                <tr>
+                  <th>文档名称</th>
+                  <th>分类</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+            <?php if( isset($contents) && is_array( $contents ) ): ?>
+            <?php foreach ($contents as $key => $value): ?>
+              <tr>
+                <td><a href="<?=$value['filepath'];?>"><?=$value['filename'];?></a></td>
+                <td><p><?=filecat_to_name($value['filecat']);?></p></td>
+                <td>
+                  <a href="?c=backedit&a=deletecontent&type=<?=$itemname;?>&num=<?=$value['id'];?>" class="btn btn-warning btn-sm">删 除</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+            <?php else: ?>
+              <tr>
+                <td><p>暂无文档</p></td><td></td><td></td>
+              </tr>
+            <?php endif; ?>
+              </tbody>
+            </table> 
+            <hr />
+              
+              <form action="?c=backedit&a=addfile&type=<?=$itemname;?>" method="post"
+              enctype="multipart/form-data">
+              <h4>新增文档：</h4>
+              <label for="filename">文档名称: &nbsp; &nbsp; </label>
+              <input type="text" name="filename" id="filename" />
+              <br /><br />
+              <label for="filecat">文档分类: &nbsp; &nbsp; </label>
+              <select name="filecat" id="filecat">
+                <?php if( isset($filecat) && is_array( $filecat ) ): ?>
+                <?php foreach ($filecat as $key => $value): ?>
+                <option value="<?=$value['id'];?>"><?=$value['catname'];?></option>
+                <?php endforeach; ?>
+                <?php endif; ?>
+              </select>
+              <br /><br />
+              <label for="file">文档选择: &nbsp; &nbsp; </label>
+              <input type="file" name="file" id="file" style="display: inline;" />
+              <br />
+              <input type="submit" class="btn btn-success btn-sm" name="submit" value="添加" />
+              </form>
+          <?php elseif($itemname == 'caseslist'): ?>
+            <table class="table table-striped table-hover ">
+              <thead>
+                <tr>
+                  <th>案例名称</th>
+                  <th>分类</th>
+                  <th>时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+            <?php if( isset($contents) && is_array( $contents ) ): ?>
+            <?php foreach ($contents as $key => $value): ?>
+              <tr>
+                <td><a href="?c=backedit&a=editcase&item=caseslist&num=<?=$value['id'];?>"><?=$value['title'];?></a></td>
+                <td><p><?=cat_to_name($value['category']);?></p></td>
+                <td><p><?=$value['time'];?></p></td>
+                <td>
+                  <a href="?c=backedit&a=editcase&item=caseslist&num=<?=$value['id'];?>" class="btn btn-primary btn-sm">编 辑</a>
+                  <a href="?c=backedit&a=deletecontent&type=<?=$itemname;?>&num=<?=$value['id'];?>" class="btn btn-warning btn-sm" style="margin-left:20px;">删 除</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+            <?php else: ?>
+              <tr>
+                <td><p>暂无案例</p></td><td></td><td></td>
+              </tr>
+            <?php endif; ?>
+              </tbody>
+            </table> 
+              <hr />
+              <a href="?c=backedit&a=addcase&item=caseslist" class="btn btn-success btn-sm" style="">添加案例</a>
+          <?php else: ?>
+            <table class="table table-striped table-hover ">
+              <thead>
+                <tr>
+                  <th>法律主题名称</th>
+                  <th>分类</th>
+                  <th>时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+            <?php if( isset($contents) && is_array( $contents ) ): ?>
+            <?php foreach ($contents as $key => $value): ?>
+              <tr>
+                <td><a href="?c=backedit&a=editlaw&item=lawlist&num=<?=$value['id'];?>"><?=$value['title'];?></a></td>
+                <td><p><?=lawcat_to_name($value['lawcat']);?></p></td>
+                <td><p><?=$value['time'];?></p></td>
+                <td>
+                  <a href="?c=backedit&a=editlaw&item=lawlist&num=<?=$value['id'];?>" class="btn btn-primary btn-sm">编 辑</a>
+                  <a href="?c=backedit&a=deletecontent&type=<?=$itemname;?>&num=<?=$value['id'];?>" class="btn btn-warning btn-sm" style="margin-left:20px;">删 除</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+            <?php else: ?>
+              <tr>
+                <td><p>暂无法律主题</p></td><td></td><td></td>
+              </tr>
+              
+            <?php endif; ?>
+              </tbody>
+            </table> 
+              <hr />
+              <a href="?c=backedit&a=addlaw&item=lawlist" class="btn btn-success btn-sm" style="">添加法律主题</a>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>

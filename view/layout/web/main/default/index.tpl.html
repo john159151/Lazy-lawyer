@@ -1,0 +1,89 @@
+<div class="row">
+      <div class="col-lg-6" style="padding: 25px 15px 0 15px;">
+        <div class="well sponsor">
+            <span style="float: left; margin-right: 15px;">
+              <img src="static/image/head1.jpg" width="175" height="135">
+            </span>
+            <h4 style="margin-bottom: 0.4em;">杨昕月 律师</h4>
+            <div class="clearfix">
+              <p>云南北川律师事务所执业律师</p>
+              <p>欢迎访问我的个人网站</p>
+            </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="bs-component">
+          <h3 id="type-blockquotes">我的座右铭</h3>
+          <blockquote>
+            <p>“无论何时，律师应当绝对无畏于外部的压力和内心的怯懦。在大多数情况下，律师是其当事人命运的把握者，律师的神圣之手掌握著其当事人的财产、生命、自由。”</p>
+            <small>D．N．辛哈</small>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-docs-section">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="page-header">
+            <h1 id="type">服务内容</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Headings -->
+
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="bs-component">
+            <h3>非诉讼法律服务</h3>
+            <p>非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容非诉讼法律服务内容</p>
+          </div>
+
+        </div>
+        <div class="col-lg-4">
+          <div class="bs-component">
+            <h3>诉讼服务</h3>
+            <p>诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务诉讼服务</p>
+          </div>
+
+        </div>
+        <div class="col-lg-4">
+          <div class="bs-component">
+            <h3>法律咨询服务</h3>
+            <p>法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务法律咨询服务</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-docs-section">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="page-header">
+            <h1 id="type">文档下载</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Headings -->
+
+      <div class="row">
+
+        <?php if( isset($filecontent) && is_array( $filecontent ) ): ?>
+          <?php foreach ($filecontent as $key => $value): ?>
+          <div class="col-lg-4">
+            <div class="bs-component">
+              <h3><?=$catname[$key];?></h3>
+              <p><a href="<?=$value[0]['filepath'];?>"><?=$value[0]['filename'];?></a></p>
+            </div>
+          </div>
+          <?php endforeach; ?>
+          <?php endif; ?>
+
+        <center>
+        <p><a class="btn btn-primary btn-large" href="?c=downloadfile">更多 »</a></p>
+        </center>
+      </div>
+    </div>

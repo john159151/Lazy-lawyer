@@ -1,0 +1,41 @@
+<center>
+      <h1 id="type"><?=$catename?></h1>
+    </center>
+
+      <!-- Headings -->
+
+      <div class="row">
+        <div class="col-lg-3" style="margin-top: 20px;">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <center>
+              <h3 class="panel-title">文档分类</h3>
+              </center>
+            </div>
+            <div class="list-group">
+              <a href="?c=downloadfile" class="list-group-item">全部文档</a>
+              <?php foreach ($categorys as $key => $value): ?>
+              <a href="?c=downloadfile&a=filescat&cat=<?=$value['id']?>" class="list-group-item<?php if( $filecat == $value['id'] ): ?> active<?php endif; ?>">
+                <?=$value['catname'];?>
+              </a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-9">
+          <?php if( isset($catfiles) && is_array( $catfiles ) ): ?>
+          <?php foreach ($catfiles as $key => $value): ?>
+          <hr />
+          <div class="bs-component" style="padding-left: 20px;">
+            <p><a href="<?=$value['filepath'];?>"><?=$value['filename'];?></a></p>
+          </div>
+          <?php endforeach; ?>
+          <?php else: ?>
+          <hr />
+            <center><p>暂无文档</p></center>
+          <?php endif; ?>
+          <hr />
+        </div>
+      </div>
+    </div>
