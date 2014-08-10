@@ -295,4 +295,31 @@ class backeditController extends appController
 		}
 	}
 
+	function style()
+	{
+		$data['title'] = $data['top_title'] = '更换模板风格';
+		render( $data , 'web' , 'editcontent');
+	}
+
+	function stylechange()
+	{
+		$name = $_GET['name'];
+
+		$file = 'static/css/bootstrap.'.$name.'.css';
+		$newfile = 'static/css/bootstrap.min.css';
+		
+		if (!copy($file, $newfile)) {
+		    echo "<script>";
+			echo "alert('风格更换失败！');";
+	      	echo "window.location.href = '".c( $site_url )."?c=backedit&a=style'";
+	      	echo "</script>";
+		}
+		else {
+			echo "<script>";
+			echo "alert('风格更换成功');";
+	      	echo "window.location.href = '".c( $site_url )."?c=backedit&a=style'";
+	      	echo "</script>";
+		}
+	}
+
 }
