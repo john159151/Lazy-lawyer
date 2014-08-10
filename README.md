@@ -28,3 +28,7 @@ Lazy-lawyer是一个律师个人网站程序，包含了前端页面和简单的
 
 5.如需了解LazyPHP框架，可查看 https://github.com/easychen/LazyPHP
 
+## 新增功能 ##
+
+1.后台增加“更换风格”选项，提供十多种开源样式供选择（2014-8-10）
+
