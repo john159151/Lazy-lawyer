@@ -76,12 +76,19 @@
           <div class="col-lg-4">
             <div class="bs-component">
               <h3><?=$catname[$key];?></h3>
-              <p><a href="<?=$value[0]['filepath'];?>"><?=$value[0]['filename'];?></a></p>
+              <?php if( isset($value) && is_array( $value ) ): ?>
+              <?php foreach ($value as $key => $v): ?>
+              <p><a href="<?=$v['filepath'];?>"><?=$v['filename'];?></a></p>
+              <?php endforeach; ?>
+              <?php endif; ?>
             </div>
           </div>
           <?php endforeach; ?>
           <?php endif; ?>
 
+        
+      </div>
+      <div class="row">
         <center>
         <p><a class="btn btn-primary btn-large" href="?c=downloadfile">更多 »</a></p>
         </center>

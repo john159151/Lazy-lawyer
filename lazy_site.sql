@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `yxy_cases` (
   `category` smallint(4) NOT NULL,
   `time` date NOT NULL,
   `description` varchar(200) NOT NULL,
-  `content` text NOT NULL,
+  `content` mediumtext NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `yxy_laws` (
   `lawcat` smallint(4) NOT NULL,
   `time` date NOT NULL,
   `description` varchar(200) NOT NULL,
-  `content` text NOT NULL,
+  `content` mediumtext NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 

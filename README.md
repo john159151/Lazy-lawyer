@@ -18,7 +18,7 @@ Lazy-lawyer是一个律师个人网站程序，包含了前端页面和简单的
 
 ## 其他说明 ##
 
-1.后台未含有操作首页除”文档下载”之外的内容的功能，如需更改，直接操作”view/layout/web/main/default/index.tpl.html”文件，同样地，”联系方式”页面同样直接操作”view/layout/web/main/default/contacts.tpl.html”文件
+1.后台未含有操作首页除“文档下载”之外的内容的功能，如需更改，直接操作”view/layout/web/main/default/index.tpl.html”文件，同样地，”联系方式”页面同样直接操作”view/layout/web/main/default/contacts.tpl.html”文件
 
 2.css采用改写后的Bootstrap.css，如需更改样式，可自己重写css样式，也可在Bootstrap.css基础上编写css，样式文件目录是”static/css/”
 
@@ -27,6 +27,8 @@ Lazy-lawyer是一个律师个人网站程序，包含了前端页面和简单的
 4.网站的部分页面截图查看地址：http://www.xuhaixiao.com/lazy-lawyer/
 
 5.如需了解LazyPHP框架，可查看 https://github.com/easychen/LazyPHP
+
+6.确保“static/upload”文件夹有写权限
 
 ## 新增功能 ##
 
